@@ -69,6 +69,8 @@ char	*check_and_replace_str1(t_env *env, char *str)
 
 	if (str[0] != '$')
 		return (str);
+	if (str[0] == '$' && str[1] == '\0')
+		return (str);
 	key = t_env_get_key(env, str);
 	if (!key)
 		return (ft_strreplace(str, ""));
@@ -84,6 +86,8 @@ char	*check_and_replace_str2(t_env *env, char *str, int split_flag)
 	char	*value;
 
 	if (str[0] != '$')
+		return (str);
+	if (str[0] == '$' && str[1] == '\0')
 		return (str);
 	key = t_env_get_key(env, str);
 	if (!key)
