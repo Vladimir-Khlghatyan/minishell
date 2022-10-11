@@ -12,20 +12,6 @@
 
 #include "minishell.h"
 
-static int	ft_there_is_pipe(t_inputs *inp)
-{
-	t_inputs	*tmp;
-
-	tmp = inp;
-	while (tmp)
-	{
-		if (!ft_strcmp(tmp->type, PIPE))
-			return (1);
-		tmp = tmp->next;
-	}
-	return (0);
-}
-
 static void	t_env_underscore_key_reset_util(t_env *env, char *str)
 {
 	t_env	*tmp;
@@ -52,7 +38,7 @@ void	t_env_underscore_key_reset(t_data *d)
 	if (d->single_builin)
 		t_env_underscore_key_reset_util(d->env, \
 			d->inp->args[ft_arrlen(d->inp->args) - 1]);
-	else if (ft_there_is_pipe(d->inp) == 1)
+	else if (d->proc_cnt > 1)
 		t_env_underscore_key_reset_util(d->env, "");
 	else
 	{
