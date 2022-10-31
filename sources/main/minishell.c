@@ -28,10 +28,10 @@ void	display_prompt(t_env *env)
 		buffer = readline("\33[1;32m🇦🇲  minishell> \33[0;m");
 		signal(SIGINT, handler_signals3);
 		signal(SIGQUIT, handler_signals3);
-		ft_history(buffer);
+		if (!ft_history(buffer))
+			continue ;
 		inp = lexer_parser(env, buffer);
 		t_data_update(d, env, inp);
-		here_doc_max_check(d);
 		if (d->unexp_token)
 			unexp_token_check(d);
 		else if (d->single_builin)
