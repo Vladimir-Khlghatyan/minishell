@@ -123,7 +123,7 @@ int			ft_putstr_fd(char *str1, char *str2, char *str3, int fd);
 int			error_message(t_env *env, char *err, char *str, int exit_status);
 void		error_message_and_exit(char *str, int exit_status);
 void		exit_message_on_ctrl_d(char *str, int exit_status);
-void		ft_history(char *buffer);
+int			ft_history(char *buffer);
 int			ft_sign(char *str);
 long long	ft_atoll(char *str);
 char		*ft_lltoa(long long n);
@@ -151,6 +151,7 @@ char		**ft_split(char *s, char c);
 char		**ft_split_equal(char *s);
 void		print_header(void);
 int			t_env_exit_status_reset(t_env *env, int exit_status);
+int			ft_empty_or_only_spaces_str(char *str);
 void		t_env_underscore_key_reset(t_data *d);
 
 //==========================================================================
