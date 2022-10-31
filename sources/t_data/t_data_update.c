@@ -99,4 +99,5 @@ void	t_data_update(t_data *d, t_env *env, t_inputs *inp)
 	g_sigint_flag = 0;
 	d->pipefds = NULL;
 	t_env_underscore_key_reset(d);
+	here_doc_max_check(d);
 }
