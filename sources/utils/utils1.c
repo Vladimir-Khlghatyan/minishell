@@ -46,10 +46,16 @@ void	exit_message_on_ctrl_d(char *str, int exit_status)
 	exit(exit_status);
 }
 
-void	ft_history(char *buffer)
+int	ft_history(char *buffer)
 {
 	if (!buffer)
 		exit_message_on_ctrl_d("exit\n", 0);
 	if (buffer[0] != '\0')
 		add_history(buffer);
+	if (ft_empty_or_only_spaces_str(buffer))
+	{
+		free(buffer);
+		return (0);
+	}
+	return (1);
 }

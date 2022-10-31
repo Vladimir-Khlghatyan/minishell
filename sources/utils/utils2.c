@@ -32,3 +32,16 @@ int	t_env_exit_status_reset(t_env *env, int exit_status)
 	}
 	return (-1);
 }
+
+int	ft_empty_or_only_spaces_str(char *str)
+{
+	int	i;
+
+	if (!str)
+		return (-1);
+	i = -1;
+	while (str[++i])
+		if (str[i] != ' ')
+			return (0);
+	return (1);
+}
