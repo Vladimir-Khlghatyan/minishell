@@ -33,7 +33,7 @@ void	t_env_underscore_key_reset(t_data *d)
 	t_inputs	*tmp;
 
 	tmp = d->inp;
-	if (d->unexp_token)
+	if (d->unexp_token || !tmp)
 		return ;
 	if (d->single_builin)
 		t_env_underscore_key_reset_util(d->env, \
